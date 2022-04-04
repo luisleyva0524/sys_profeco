@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reference to files css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- reference to files javascript -->
+    <script src="./js/jquery-1.12.4.min.js"></script>  
+
+    <title>All Users</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand">Products</a>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="btnCagar">Cargar</button>
+          <!-- <button type="button" class="btn btn-secondary" id="btnCagar">Cargar</button>   -->
+        </form>
+      </nav>
+    <!-- <button id="btnCagar">Cargar</button> -->
+        <section style="margin-top:3px">
+            <table class="table table-dark" id="table_data_users">
+
+            </table>
+        </section>
+        <script src="./js/getDataUsers.js"></script>
+</body>
+</html>

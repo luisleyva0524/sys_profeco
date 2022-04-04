@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reference to files css -->
+    <link rel="stylesheet" href="../public/css/table_users.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- reference to files javascript -->
+    <script src="./js/jquery-1.12.4.min.js"></script>
+
+    <title>All Products</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand">Products</a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="btnCagar">Cargar</button>
+            <!-- <button type="button" class="btn btn-secondary" id="btnCagar">Cargar</button>   -->
+        </form>
+    </nav>
+
+    <table class="table table-dark" id="table_data_users">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>NAMES</th>
+                <th>DESCRIPTIONS</th>
+                <th>PRICES</th>
+                <th>AVAILABLE</th>
+                <th>SIZE</th>
+                <th>QUANTITY</th>
+                <th>CATEGORY</th>
+                <th>SUPERMARKET</th>
+            </tr>
+        </thead>
+        <tbody id="data_products">
+
+        </tbody>
+    </table>
+    <!-- <script src="./js/getDataProducts.js"></script> -->
+    <script>
+        const url = 'http://localhost:3000/sys/profeco/products/all';
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json'
+            }
+
+        })
+            .then(response => response.json())
+            .then(data => view(data))
+            .catch((error => console.log(error)))
+
+        const view = (data) => {
+            let body = '';
+            for (let i = 0; i < data.length; i++) {
+                body += `<tr>
+        <td>${data[i].id_product}</td>
+        <td>${data[i].name}</td>
+        <td>${data[i].description}</td>
+        <td>${data[i].price}</td>
+        <td>${data[i].available}</td>
+        <td>${data[i].size}</td>
+        <td>${data[i].quantity}</td> 
+        <td>${data[i].category}</td>
+        <td>${data[i].fk_product}</td>
+        </tr>`
+            }
+            document.getElementById('data_products').innerHTML = body
+        }
+    </script>
+</body>
+
+</html>
