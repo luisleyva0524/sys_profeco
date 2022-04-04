@@ -36,10 +36,7 @@ exports.findProductById = async (req, res) => {
                 id_product: req.params.id_product
             }
         });
-        res.status(200).json({
-            status: 'product it was find',
-            data: findProduct
-        });
+        res.status(200).json(findProduct);
     } catch (error) {
         res.status(500).json({
             status: 'failed',
@@ -70,14 +67,27 @@ exports.productDelete = async(req, res) => {
 
 }
 
+
+// exports.obtener() = async (req, res) => {
+//  try {
+//     const query = `SELECT * FROM products`;
+//     res.status(200).json({
+//         status: 'all products...',
+//         data: await Sequelize.query(query, { type: Sequelize.QueryTypes.SELECT })
+//     })
+// }catch (error) {
+//     res.status(500).json({
+//         status: 'failed',
+//         msg: error
+//     })
+//   }  
+// }
+
 exports.getProducts = async (req, res) => {
     try {
-        const results = await model_product.Product.findAll();
-        res.status(201).json({
-            status: 'all products...',
-            data:
-                results
-        });
+        const results = await model_product.Product.findAll({tags:'id_product'});
+        // const filte = new Array(results[1].dataValues.id_product);
+        res.status(201).json(results);
     } catch (error) {
         res.status(500).json({
             status: 'failed',
