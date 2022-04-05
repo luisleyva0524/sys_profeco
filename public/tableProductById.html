@@ -16,9 +16,9 @@
 
     <nav class="navbar navbar-dark bg-dark justify-content-between">
         <a class="btn btn-secondary" href="index.html">Back</a>
-        <a class="navbar-brand">Products</a>
         <form class="form-inline" id="send_id" method="post" onreset="addEventListener()">
-            <button type="button" class="btn btn-secondary" id="btnCagar" onclick="getAllProducts()">Cargar</button>  
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="id_product">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
 
@@ -27,12 +27,7 @@
             <tr>
                 <th>ID</th>
                 <th>NAMES</th>
-                <th>DESCRIPTIONS</th>
                 <th>PRICES</th>
-                <th>AVAILABLE</th>
-                <th>SIZE</th>
-                <th>QUANTITY</th>
-                <th>CATEGORY</th>
                 <th>SUPERMARKET</th>
             </tr>
         </thead>
@@ -40,7 +35,6 @@
         </tbody>
     </table>
     <!-- reference to files javascript -->
-    <script src="./js/getDataProducts.js"></script>
     <script src="./js/getProductById.js"></script>
 
    

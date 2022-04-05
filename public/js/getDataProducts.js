@@ -1,3 +1,8 @@
+// const click = document.getElementById("btnCagar");
+
+
+
+function getAllProducts() {
 let url = 'http://localhost:3000/sys/profeco/products/all';
         fetch(url)
             .then(response => response.json())
@@ -22,3 +27,4 @@ let url = 'http://localhost:3000/sys/profeco/products/all';
             }
             document.getElementById('data').innerHTML = body
         }
+    }

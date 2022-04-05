@@ -4,13 +4,12 @@ const express = require('express');
 const router = express.Router();
 
 router
-    //.route('/')  
     .get('/all',model_product.getProducts)
     .post('/add',model_product.productAdd);
 router
     .route('/:id')  
-    .get(model_product.findProductById)
-    // .put(model_user.userUpdate)
+    .post(model_product.findProductById)
+    //.put(model_user.userUpdate)
     .delete(model_product.productDelete);
       
 

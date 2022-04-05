@@ -1,7 +1,4 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
- */
+
 const PORT = 3000;
 const cors = require('cors');
 const express = require('express');
