@@ -43,12 +43,8 @@ exports.findProductById = async (req, res) => {
         });        
         res.status(201).json(findProduct);
     } catch (error) {
-        res.status(500).json({
-            status: 'failed',
-            msg: error
-        });
+        res.send(console.log(error));
     }
-
 };
 
 
