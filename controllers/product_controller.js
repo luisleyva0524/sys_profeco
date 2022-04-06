@@ -30,7 +30,7 @@ exports.productAdd = async (req, res) => {
 
 exports.findProductById = async (req, res) => {
     try {
-        const findProduct = await model_product.Product.findOne({
+        const findProduct = await model_product.Product.findAll({
             where: {
                 id_product: req.params.id
             },
