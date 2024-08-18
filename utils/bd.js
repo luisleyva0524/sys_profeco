@@ -6,7 +6,7 @@
 const Sequelize = require('sequelize').Sequelize;
 
 function params(){
-    const sequelize = new Sequelize(
+    return new Sequelize(
         'test',
         'dev',
         '1a2b3c4d', {
@@ -14,7 +14,6 @@ function params(){
             host: 'localhost'
         }
     );
-    return sequelize;
 }
 
 module.exports = params();

@@ -16,10 +16,10 @@ exports.productAdd = async (req, res) => {
             category: req.body.category,
             fk_product: req.body.fk_product
         });
-        res.status(201).json(results);
+        res.statusCode(201).json(results);
     } catch (error) {
-        res.status(500).json({
-            status: 'failed',
+        res.statusCode(500).json({
+            status: 'failure when trying to add a new product',
             msg: error
         });
     }
@@ -41,9 +41,12 @@ exports.findProductById = async (req, res) => {
                 'fk_product'
             ]
         });        
-        res.status(201).json(findProduct);
+        res.statusCode(201).json(findProduct);
     } catch (error) {
-        res.send(console.log(error));
+        res.statusCode(500).json({
+            status: 'failed while try find the product',
+            msg: error
+        });
     }
 };
 
@@ -55,10 +58,10 @@ exports.productDelete = async (req, res) => {
                 id_product: req.params.id
             }
         });
-        res.status(201).json(results);
+        res.statusCode(200);
     } catch (error) {
-        res.status(500).json({
-            status: 'failed',
+        res.statusCode(500).json({
+            status: 'failed while try delete the product',
             msg: error
         });
     }
@@ -69,10 +72,10 @@ exports.productDelete = async (req, res) => {
 exports.getProducts = async (req, res) => {
     try {
         const results = await model_product.Product.findAll();
-        res.status(201).json(results);
+        res.statusCode(201).json(results);
     } catch (error) {
         res.status(500).json({
-            status: 'failed',
+            status: 'an error occurred when trying to obtain the products',
             msg: error
         });
     }
